@@ -1,9 +1,5 @@
-# RLBotJavaExample
-An example bot implemented in Java
-
-## Video Guide
-
-https://youtu.be/mPfYqKe_KRs
+# JesterBot
+A Rocket League Bot implimented in Kotlin. Forked from the Java Example Bot
 
 ## Usage Instructions:
 
@@ -18,9 +14,6 @@ https://youtu.be/mPfYqKe_KRs
 open and it's OK if it says something like "75%".
 1. Double click on run-framework-gui.bat
 1. Click the 'Run' button
-
-- Bot behavior is controlled by `src/main/java/rlbotexample/SampleBot.java`
-- Bot appearance is controlled by `src/main/python/javaExampleAppearance.cfg`
 
 See the [wiki](https://github.com/RLBot/RLBotJavaExample/wiki)
 for tips to improve your programming experience.
