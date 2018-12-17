@@ -1,5 +1,6 @@
-// This file controls gradle, which we are using to install and update the RLBot framework used by this example bot,
-// and also compile and run the java code used by this bot.
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.11'
+}
 
 apply plugin: 'java'
 apply plugin: 'application'
@@ -10,7 +11,7 @@ repositories {
     jcenter()
 }
 
-mainClassName = 'rlbotexample.JavaExample'
+mainClassName = 'jesterbot.JesterBot'
 
 // This directory will be created and the interface dll copied into it at runtime.
 // The end result is that the interface dll will be available for loading.
@@ -18,8 +19,10 @@ def dllDirectory = 'build/dll'
 applicationDefaultJvmArgs = ["-Djna.library.path=" + dllDirectory]
 
 dependencies {
-    // Fetch the framework jar file
     compile 'org.rlbot.commons:framework:1.+'
+    compile 'org.joml:joml:1.9.12'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
 
     // This is makes it easy to find the dll when running in intellij, where JVM args don't get passed from gradle.
     runtime files(dllDirectory)
@@ -80,5 +83,15 @@ distZip {
     }
     into (applicationName + '/bin') {
         from fileTree('port.cfg')
+    }
+}
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
